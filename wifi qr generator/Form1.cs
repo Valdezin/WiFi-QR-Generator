@@ -21,6 +21,18 @@ namespace wifi_qr_generator
         {
             var type_security = "";
             var type_hidden = "";
+
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Please enter a SSID");
+                return;
+            }
+            else if (textBox2.Text == "")
+            {
+                MessageBox.Show("Please enter the password");
+                return;
+            }
+            
             if (rb_none.Checked)
             {
                 type_security = "nopass";
