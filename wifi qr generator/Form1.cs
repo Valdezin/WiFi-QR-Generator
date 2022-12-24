@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace wifi_qr_generator
 {
@@ -14,7 +15,10 @@ namespace wifi_qr_generator
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            textBox2.Enabled = !rb_none.Checked;
+            checkBox1.Enabled = !rb_none.Checked;
+            checkBox1.Text = "Disabled";
+            textBox2.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,24 +31,30 @@ namespace wifi_qr_generator
                 MessageBox.Show("Please enter a SSID");
                 return;
             }
-            else if (textBox2.Text == "")
+
+            if (rb_wep.Checked)
             {
-                MessageBox.Show("Please enter the password");
-                return;
-            }
-            
-            if (rb_none.Checked)
-            {
-                type_security = "nopass";
+                type_security = "WEP";
+                if (textBox2.Text == "")
+                {
+                    MessageBox.Show("Please enter a password");
+                    return;
+                }
             }
             else if (rb_wpa.Checked)
             {
                 type_security = "WPA";
+                if (textBox2.Text == "")
+                {
+                    MessageBox.Show("Please enter a password");
+                    return;
+                }
             }
-            else if (rb_wep.Checked)
+            else if (rb_none.Checked)
             {
-                type_security = "WEP";
+                type_security = "nopass";
             }
+
             else
             {
                 MessageBox.Show("Please select a security type");
@@ -63,6 +73,8 @@ namespace wifi_qr_generator
             {
                     MessageBox.Show("Please select if the SSID is Hidden");
             }
+
+
                 string qrdata = "WIFI:S:" + textBox1.Text + ";T:" + type_security + ";P:" + textBox2.Text + ";H:" + type_hidden + ";";
 
             MessagingToolkit.QRCode.Codec.QRCodeEncoder qrcode = new MessagingToolkit.QRCode.Codec.QRCodeEncoder();
@@ -131,6 +143,16 @@ namespace wifi_qr_generator
                 panel1.Focus();
                 e.Handled = true;
             }
+        }
+
+        private void rb_wpa_CheckedChanged(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void rb_wep_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

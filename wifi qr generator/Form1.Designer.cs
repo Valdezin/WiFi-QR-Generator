@@ -83,12 +83,10 @@
             // rb_none
             // 
             this.rb_none.AutoSize = true;
-            this.rb_none.Checked = true;
             this.rb_none.Location = new System.Drawing.Point(1, 3);
             this.rb_none.Name = "rb_none";
             this.rb_none.Size = new System.Drawing.Size(66, 24);
             this.rb_none.TabIndex = 4;
-            this.rb_none.TabStop = true;
             this.rb_none.Text = "None";
             this.rb_none.UseVisualStyleBackColor = true;
             this.rb_none.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
@@ -96,12 +94,15 @@
             // rb_wpa
             // 
             this.rb_wpa.AutoSize = true;
+            this.rb_wpa.Checked = true;
             this.rb_wpa.Location = new System.Drawing.Point(73, 3);
             this.rb_wpa.Name = "rb_wpa";
             this.rb_wpa.Size = new System.Drawing.Size(151, 24);
             this.rb_wpa.TabIndex = 5;
+            this.rb_wpa.TabStop = true;
             this.rb_wpa.Text = "WPA/WPA2/WPA3";
             this.rb_wpa.UseVisualStyleBackColor = true;
+            this.rb_wpa.CheckedChanged += new System.EventHandler(this.rb_wpa_CheckedChanged);
             // 
             // rb_wep
             // 
@@ -112,6 +113,7 @@
             this.rb_wep.TabIndex = 6;
             this.rb_wep.Text = "WEP";
             this.rb_wep.UseVisualStyleBackColor = true;
+            this.rb_wep.CheckedChanged += new System.EventHandler(this.rb_wep_CheckedChanged);
             // 
             // h_yes
             // 
