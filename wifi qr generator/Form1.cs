@@ -147,12 +147,12 @@ namespace wifi_qr_generator
 
         private void rb_wpa_CheckedChanged(object sender, EventArgs e)
         {
- 
+            checkBox1.Text = "Show Password";
         }
 
         private void rb_wep_CheckedChanged(object sender, EventArgs e)
         {
-            
+            checkBox1.Text = "Show Password";
         }
     }
 }
