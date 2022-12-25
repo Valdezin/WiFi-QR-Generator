@@ -1,6 +1,6 @@
 # WiFi QR Generator
 
-![image](https://user-images.githubusercontent.com/110330524/209289682-50985a2f-5ff6-4a26-9ead-25918cb438c4.png)
+![image](https://user-images.githubusercontent.com/110330524/209480083-bdd49316-a62f-400f-aa62-74771cf06314.png)
 
 A WiFi QR Generator Based out of C#
 
