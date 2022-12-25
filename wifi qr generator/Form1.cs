@@ -11,6 +11,7 @@ namespace wifi_qr_generator
         public Form1()
         {
             InitializeComponent();
+            button2.Enabled = false;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -81,6 +82,7 @@ namespace wifi_qr_generator
 
             pictureBox1.Image = qrcode.Encode(qrdata);
             pictureBox2.Image = pictureBox1.Image;
+            button2.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
