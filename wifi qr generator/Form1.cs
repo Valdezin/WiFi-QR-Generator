@@ -41,13 +41,23 @@ namespace wifi_qr_generator
                     MessageBox.Show("Please enter a password");
                     return;
                 }
-            }
+                else if (textBox2.Text.Length < 8)
+                {
+                    MessageBox.Show("Password must be at least 8 characters");
+                    return;
+                }
+                }
             else if (rb_wpa.Checked)
             {
                 type_security = "WPA";
                 if (textBox2.Text == "")
                 {
                     MessageBox.Show("Please enter a password");
+                    return;
+                }
+                else if (textBox2.Text.Length < 8)
+                {
+                    MessageBox.Show("Password must be at least 8 characters");
                     return;
                 }
             }
