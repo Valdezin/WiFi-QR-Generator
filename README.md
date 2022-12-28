@@ -7,7 +7,7 @@ A WiFi QR Generator Based out of C#
 # How to Use
 
 1) Navigate to [Release Page](https://github.com/Valdezin/WiFi-QR-Generator/releases)
-2) Download the latest .exe release file (Current Latest Version is v1.03)
+2) Download the latest .exe release file (Current Latest Version is v1.03-m)
 3) Run it
 4) Use it :p
 
