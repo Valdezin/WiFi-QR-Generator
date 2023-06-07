@@ -8,6 +8,9 @@ namespace wifi_qr_generator
 {
     public partial class Form1 : Form
     {
+        
+        string type_security = "";
+        string type_hidden = "";
         public Form1()
         {
             InitializeComponent();
@@ -22,10 +25,9 @@ namespace wifi_qr_generator
             textBox2.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
-            var type_security = "";
-            var type_hidden = "";
+
 
             if (textBox1.Text == "")
             {
@@ -93,11 +95,8 @@ namespace wifi_qr_generator
             pictureBox1.Image = qrcode.Encode(qrdata);
             pictureBox2.Image = pictureBox1.Image;
             button2.Enabled = true;
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            button3.Visible = true;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -110,7 +109,7 @@ namespace wifi_qr_generator
 
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             var name = textBox1.Text + "_wifiqrcode";
             using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = @"PNG|*.png" })
@@ -165,6 +164,27 @@ namespace wifi_qr_generator
         private void rb_wep_CheckedChanged(object sender, EventArgs e)
         {
             checkBox1.Text = "Show Password";
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            string qrData = "WIFI:S:" + textBox1.Text + ";T:" + type_security + ";P:" + textBox2.Text + ";H:" + type_hidden + ";";
+
+            MessagingToolkit.QRCode.Codec.QRCodeEncoder qrcode = new MessagingToolkit.QRCode.Codec.QRCodeEncoder();
+            Image qrCodeImage = qrcode.Encode(qrData);
+
+            Form_printQR printQR = new Form_printQR();
+            printQR.QRCodeImage = qrCodeImage;
+            printQR.TextBox1Text = textBox1.Text;
+            printQR.TextBox2Text = textBox2.Text;
+            printQR.Show();
+            this.Hide();
         }
     }
 }
